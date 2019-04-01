@@ -33,24 +33,36 @@ Answer the following questions for each of the data structures you implemented a
 
 ## Doubly Linked List
 
-1. What is the runtime complexity of `ListNode.insert_after`?
+1.  What is the runtime complexity of `ListNode.insert_after`?
+    Constant
 
-2. What is the runtime complexity of `ListNode.insert_before`?
+2.  What is the runtime complexity of `ListNode.insert_before`?
+    Constant
 
-3. What is the runtime complexity of `ListNode.delete`?
+3.  What is the runtime complexity of `ListNode.delete`?
+    Constant
 
-4. What is the runtime complexity of `DoublyLinkedList.add_to_head`?
+4.  What is the runtime complexity of `DoublyLinkedList.add_to_head`?
+    Constant
 
-5. What is the runtime complexity of `DoublyLinkedList.remove_from_head`?
+5.  What is the runtime complexity of `DoublyLinkedList.remove_from_head`?
+    Constant
 
-6. What is the runtime complexity of `DoublyLinkedList.add_to_tail`?
+6.  What is the runtime complexity of `DoublyLinkedList.add_to_tail`?
+    Constant
 
-7. What is the runtime complexity of `DoublyLinkedList.remove_from_tail`?
+7.  What is the runtime complexity of `DoublyLinkedList.remove_from_tail`?
+    Constant
 
-8. What is the runtime complexity of `DoublyLinkedList.move_to_front`?
+8.  What is the runtime complexity of `DoublyLinkedList.move_to_front`?
+    Constant
 
-9. What is the runtime complexity of `DoublyLinkedList.move_to_end`?
+9.  What is the runtime complexity of `DoublyLinkedList.move_to_end`?
+    Constant
 
 10. What is the runtime complexity of `DoublyLinkedList.delete`?
+    Constant
 
     a. Compare the runtime of the doubly linked list's `delete` method with the worst-case runtime of the JS `Array.splice` method. Which method generally performs better?
+
+        the delete method runs much faster than the array method.  for my test it was ~4 times faster but this difference could be larger with larger sized arrays.
