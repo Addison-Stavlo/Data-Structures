@@ -3,18 +3,21 @@ Answer the following questions for each of the data structures you implemented a
 ## Queue
 
 1. What is the runtime complexity of `enqueue`?
+   Constant. It only adds 1 item to the Linked List and assignment is independent of queue size.
 
 2. What is the runtime complexity of `dequeue`?
+   Constant. It only removes 1 item from the Linked List and assigning the new start value is independent of queue size.
 
 3. What is the runtime complexity of `len`?
+   Constant. It doesnt need to do any counting, just retrieve a stored property of the class.
 
 ## Binary Search Tree
 
-1. What is the runtime complexity of `insert`? 
+1. What is the runtime complexity of `insert`?
 
 2. What is the runtime complexity of `contains`?
 
-3. What is the runtime complexity of `get_max`? 
+3. What is the runtime complexity of `get_max`?
 
 ## Heap
 
