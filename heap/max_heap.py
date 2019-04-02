@@ -6,20 +6,21 @@ class Heap:
         # insert at end of heap
         new_index = len(self.storage)
         self.storage.append(value)
-        found_spot = False
+        # found_spot = False
 
-        while not found_spot:
-            # compare with parent
-            parent_index = (new_index - 1) // 2
-            if parent_index < 0:
-                parent_index = 0
-            # swap if larger than parent
-            if self.storage[new_index] > self.storage[parent_index]:
-                self.storage[new_index], self.storage[parent_index] = self.storage[parent_index], self.storage[new_index]
-                new_index = parent_index
-            # continue compare/swap until parent is larger
-            else:
-                found_spot = True
+        self._bubble_up(new_index)
+        # while not found_spot:
+        #     # compare with parent
+        #     parent_index = (new_index - 1) // 2
+        #     if parent_index < 0:
+        #         parent_index = 0
+        #     # swap if larger than parent
+        #     if self.storage[new_index] > self.storage[parent_index]:
+        #         self.storage[new_index], self.storage[parent_index] = self.storage[parent_index], self.storage[new_index]
+        #         new_index = parent_index
+        #     # continue compare/swap until parent is larger
+        #     else:
+        #         found_spot = True
 
     def delete(self):
         if len(self.storage) == 0:
@@ -34,6 +35,19 @@ class Heap:
         # remove first element (now at end of list)
         temp = self.storage.pop(last_index)
 
+        self._sift_down(0)
+
+        return temp
+
+    def get_max(self):
+        return self.storage[0]
+
+    def get_size(self):
+        return len(self.storage)
+
+    def _sift_down(self, index):
+        # i think this code would be better named 'bubble_up'
+        # but the tests make this _sift_down require the bubble up behavior
         found_spot = False
         current_index = 0
 
@@ -66,16 +80,21 @@ class Heap:
                 # repeat comparisons until child is smaller
             else:
                 found_spot = True
-        return temp
-
-    def get_max(self):
-        return self.storage[0]
-
-    def get_size(self):
-        return len(self.storage)
 
     def _bubble_up(self, index):
-        pass
+        # i think this should be named _sift_down
+        # but the tests make _bubble_up have _sift_down behavior...
+        found_spot = False
 
-    def _sift_down(self, index):
-        pass
+        while not found_spot:
+            # compare with parent
+            parent_index = (index - 1) // 2
+            if parent_index < 0:
+                parent_index = 0
+            # swap if larger than parent
+            if self.storage[index] > self.storage[parent_index]:
+                self.storage[index], self.storage[parent_index] = self.storage[parent_index], self.storage[index]
+                index = parent_index
+            # continue compare/swap until parent is larger
+            else:
+                found_spot = True
