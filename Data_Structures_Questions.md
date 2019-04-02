@@ -14,10 +14,16 @@ Answer the following questions for each of the data structures you implemented a
 ## Binary Search Tree
 
 1. What is the runtime complexity of `insert`?
+   assuming even probability distribution of insertion objects, log(n).  
+    can make worst-case inputs to force this to be O(n)
 
 2. What is the runtime complexity of `contains`?
+   assuming even probability distribution of insertion objects, log(n).  
+    can make worst-case inputs to force this to be O(n)
 
 3. What is the runtime complexity of `get_max`?
+   assuming even probability distribution of insertion objects, log(n).  
+    can make worst-case inputs to force this to be O(n)
 
 ## Heap
 
