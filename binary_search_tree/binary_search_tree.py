@@ -10,7 +10,6 @@ class BinarySearchTree:
                 self.right.insert(value)
             else:
                 self.right = BinarySearchTree(value)
-
         else:
             if self.left:
                 self.left.insert(value)
@@ -33,10 +32,18 @@ class BinarySearchTree:
                 return False
 
     def get_max(self):
-        pass
+        if self.right:
+            return self.right.get_max()
+        else:
+            return self.value
 
     def for_each(self, cb):
-        pass
+        # self.value = cb(self.value)
+        cb(self.value)
+        if self.right:
+            self.right.for_each(cb)
+        if self.left:
+            self.left.for_each(cb)
 
     def __str__(self):
         return str(self.value)
