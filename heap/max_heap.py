@@ -22,11 +22,17 @@ class Heap:
                 found_spot = True
 
     def delete(self):
+        if len(self.storage) == 0:
+            return None
+        elif len(self.storage) == 1:
+            temp = self.storage[0]
+            self.storage = []
+            return temp
         # move last element to beginning of list
         last_index = len(self.storage) - 1
         self.storage[0], self.storage[last_index] = self.storage[last_index], self.storage[0]
         # remove first element (now at end of list)
-        self.storage.pop(last_index)
+        temp = self.storage.pop(last_index)
 
         found_spot = False
         current_index = 0
@@ -60,6 +66,7 @@ class Heap:
                 # repeat comparisons until child is smaller
             else:
                 found_spot = True
+        return temp
 
     def get_max(self):
         return self.storage[0]
