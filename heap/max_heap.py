@@ -22,31 +22,53 @@ class Heap:
                 found_spot = True
 
     def delete(self):
-        # remove element from front of list
-        # copy last value to beginning, remove last index off list
-        # compare with largest child
-        # swap if smaller than largest child
-        # repeat comparisons until child is smaller
-        pass
+        # move last element to beginning of list
+        last_index = len(self.storage) - 1
+        self.storage[0], self.storage[last_index] = self.storage[last_index], self.storage[0]
+        # remove first element (now at end of list)
+        self.storage.pop(last_index)
+
+        found_spot = False
+        current_index = 0
+
+        while not found_spot:
+            # compare with largest child
+            child1_index = (current_index*2) + 1
+            child2_index = (current_index*2) + 2
+
+            if child1_index > len(self.storage) - 1:
+                # no children exist
+                largest_child_index = current_index
+                # while it seems wierd to refer to self as own child,
+                # at bottom of loop an equality triggers breaking the loop
+
+            elif child2_index > len(self.storage) - 1:
+                # only 1 child
+                largest_child_index = child1_index
+
+            elif self.storage[child1_index] > self.storage[child2_index]:
+                #child1 > child2
+                largest_child_index = child1_index
+            else:
+                #child2 > child1
+                largest_child_index = child2_index
+
+            # swap if smaller than largest child
+            if self.storage[current_index] < self.storage[largest_child_index]:
+                self.storage[current_index], self.storage[largest_child_index] = self.storage[largest_child_index], self.storage[current_index]
+                current_index = largest_child_index
+                # repeat comparisons until child is smaller
+            else:
+                found_spot = True
 
     def get_max(self):
-        pass
+        return self.storage[0]
 
     def get_size(self):
-        pass
+        return len(self.storage)
 
     def _bubble_up(self, index):
         pass
 
     def _sift_down(self, index):
         pass
-
-
-heap = Heap()
-heap.insert(5)
-heap.insert(2)
-heap.insert(7)
-heap.insert(12)
-heap.insert(1)
-heap.insert(22)
-print(heap.storage)
