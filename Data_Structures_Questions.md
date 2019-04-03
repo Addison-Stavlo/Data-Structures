@@ -28,14 +28,19 @@ Answer the following questions for each of the data structures you implemented a
 ## Heap
 
 1. What is the runtime complexity of `_bubble_up`?
+   worst case log(n), it will only need log2(n) operations to bubble the height of the tree
 
 2. What is the runtime complexity of `_sift_down`?
+   worst case log(n), it will only need log2(n) operations to bubble the height of the tree
 
 3. What is the runtime complexity of `insert`?
+   since it tiggers the bubble_up method, at worst log(n)
 
 4. What is the runtime complexity of `delete`?
+   since it triggers the \_sift_down function, at worst log(n)
 
 5. What is the runtime complexity of `get_max`?
+   constant. it always grabs the top-level node value.
 
 ## Doubly Linked List
 
