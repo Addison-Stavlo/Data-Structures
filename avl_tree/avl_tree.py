@@ -21,6 +21,9 @@ class AVLTree:
     def __init__(self, node=None):
         self.node = node
         # init height to -1 because of 0-indexing
+        # if self.node:
+        #   self.height = 0
+        # else:
         self.height = -1
         self.balance = 0
 
@@ -46,7 +49,22 @@ class AVLTree:
   """
 
     def update_height(self):
-        pass
+        if self.node:
+          if not self.node.right and not self.node.left:
+            self.height = 0
+          if self.node.right and self.node.left:
+            self.node.right.update_height()
+            self.node.left.update_height()
+            self.height = max(self.node.right.height, self.node.left.height) + 1
+          elif self.node.left:
+            self.node.left.update_height()
+            self.height = self.node.left.height + 1
+          elif self.node.right:
+            self.node.right.update_height()
+            self.height = self.node.right.height + 1
+
+        else:
+          self.height = -1
 
     """
   Updates the balance factor on the AVLTree class
@@ -89,6 +107,11 @@ class AVLTree:
   """
 
     def insert(self, key):
+      # if key > self.node.key:
+      #   if self.node.right:
+      #     self.node.right.insert(key)
+      #   else:
+      #     self.node.right = 
         pass
 
     def is_leaf(self):
