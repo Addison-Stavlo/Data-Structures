@@ -80,3 +80,14 @@ class Heap:
             # continue compare/swap until parent is larger
             else:
                 found_spot = True
+
+def heap_sort(arr):
+    sorted_arr = []
+    heap = Heap()
+
+    for x in arr:
+        heap.insert(x)
+    for i in range(len(arr)):
+        sorted_arr.append(heap.delete())
+    
+    return sorted_arr
